@@ -1,0 +1,14 @@
+artifact_uri: /Users/vikasgurjar/mlops-credit-fraud/mlruns/683574458210586258/9b000cc9aca64db89abc6816f5febdf0/artifacts
+end_time: 1760074838267
+entry_point_name: ''
+experiment_id: '683574458210586258'
+lifecycle_stage: active
+run_id: 9b000cc9aca64db89abc6816f5febdf0
+run_name: unleashed-eel-259
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1760074835690
+status: 3
+tags: []
+user_id: vikasgurjar

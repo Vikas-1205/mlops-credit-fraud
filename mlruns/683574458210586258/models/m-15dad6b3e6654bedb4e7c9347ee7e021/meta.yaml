@@ -1,0 +1,10 @@
+artifact_location: /Users/vikasgurjar/mlops-credit-fraud/mlruns/683574458210586258/models/m-15dad6b3e6654bedb4e7c9347ee7e021/artifacts
+creation_timestamp: 1760078258587
+experiment_id: '683574458210586258'
+last_updated_timestamp: 1760078261220
+model_id: m-15dad6b3e6654bedb4e7c9347ee7e021
+model_type: null
+name: model
+source_run_id: ac5b92a622f44e558cc1830143be46ac
+status: 2
+status_message: null

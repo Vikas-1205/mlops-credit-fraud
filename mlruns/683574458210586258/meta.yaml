@@ -1,0 +1,6 @@
+artifact_location: /Users/vikasgurjar/mlops-credit-fraud/mlruns/683574458210586258
+creation_time: 1760073955565
+experiment_id: '683574458210586258'
+last_update_time: 1760073955565
+lifecycle_stage: active
+name: CreditCardFraudDetection

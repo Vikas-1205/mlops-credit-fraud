@@ -1,0 +1,14 @@
+artifact_uri: /Users/vikasgurjar/mlops-credit-fraud/mlruns/683574458210586258/ac5b92a622f44e558cc1830143be46ac/artifacts
+end_time: 1760078261257
+entry_point_name: ''
+experiment_id: '683574458210586258'
+lifecycle_stage: active
+run_id: ac5b92a622f44e558cc1830143be46ac
+run_name: receptive-colt-950
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1760078258576
+status: 3
+tags: []
+user_id: vikasgurjar

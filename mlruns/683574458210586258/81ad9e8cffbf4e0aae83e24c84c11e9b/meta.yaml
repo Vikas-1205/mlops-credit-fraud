@@ -1,0 +1,14 @@
+artifact_uri: /Users/vikasgurjar/mlops-credit-fraud/mlruns/683574458210586258/81ad9e8cffbf4e0aae83e24c84c11e9b/artifacts
+end_time: 1760076060451
+entry_point_name: ''
+experiment_id: '683574458210586258'
+lifecycle_stage: active
+run_id: 81ad9e8cffbf4e0aae83e24c84c11e9b
+run_name: unique-ox-17
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1760076057865
+status: 3
+tags: []
+user_id: vikasgurjar
