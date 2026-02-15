@@ -82,25 +82,28 @@ Only deploys (registers) the model if:
 ```python
 if f1 >= 0.91:
     register_model_to_mlflow()
+```
 
-🧩 3. MLflow Integration
+---
+
+🧩 3. **MLflow Integration**
 
 Tracks:
-	•	Model parameters
-	•	Accuracy & F1 metrics
-	•	Model version
-	•	Registry stage (Production)
+- Model parameters
+- Accuracy & F1 metrics
+- Model version
+- Registry stage (Production)
 
 ✅ Each model version is stored for full reproducibility.
 
-⸻
+---
 
-🧩 4. FastAPI Deployment
+🧩 4. **FastAPI Deployment**
 
-Provides a REST API endpoint /predict for real-time fraud prediction.
+Provides a REST API endpoint `/predict` for real-time fraud prediction.
 
 Example input:
-
+```json
 {
   "Time": 0,
   "V1": -1.359807,
@@ -133,50 +136,98 @@ Example input:
   "V28": -0.021053,
   "Amount": 149.62
 }
+```
 
 Response:
-
+```json
 {"fraudulent": false}
+```
 
-🧾 How to Run
+---
 
-1️⃣ Clone Repository
+## 🧾 How to Run
 
+### 1️⃣ Clone Repository
+
+```bash
 git clone https://github.com/<your-username>/mlops-credit-fraud.git
 cd mlops-credit-fraud
+```
 
-2️⃣ Install Dependencies
+### 2️⃣ Install Dependencies
 
+```bash
 pip3 install -r requirements.txt
+```
 
-3️⃣ Add Dataset
+### 3️⃣ Add Dataset
 
-Download creditcard.csv from Kaggle and place it inside /data.
+Download `creditcard.csv` from [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) and place it inside `/data`.
 
-4️⃣ Run ML Pipeline
+### 4️⃣ Run ML Pipeline
 
+```bash
 python3 model_pipeline.py
+```
 
-5️⃣ Run MLflow UI
+### 5️⃣ Run MLflow UI
 
+```bash
 mlflow ui
+```
 
 Visit http://127.0.0.1:5000
 
-6️⃣ Run API
+### 6️⃣ Run API
 
+```bash
 uvicorn app.main:app --reload
+```
 
 Open 👉 http://127.0.0.1:8000/docs
 
-🧠 Key Learnings
-	•	Automated ML pipeline creation with MLOps best practices.
-	•	Hands-on experience in experiment tracking, model registry, and conditional deployment.
-	•	Improved model fairness and recall using SMOTE.
-	•	Deployment-ready API integration via FastAPI.
+---
 
-🏁 Final Outcome
+## 🐳 Docker Deployment
 
-F1-score: 0.9922 (Improved)
-Automated Model Promotion to Production
-Complete MLOps Lifecycle with API Integration
+### Build & Run with Docker Compose
+
+```bash
+docker-compose up --build
+```
+
+This starts:
+- **MLflow server** at http://localhost:5000
+- **FastAPI app** at http://localhost:8000
+
+### Standalone Docker
+
+```bash
+docker build -t fraud-detection-api .
+docker run -p 8000:8000 fraud-detection-api
+```
+
+### Environment Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `MLFLOW_TRACKING_URI` | `mlruns` | MLflow tracking server URI |
+| `MODEL_NAME` | `FraudDetectionModel` | Registered model name |
+| `MODEL_STAGE` | *(empty)* | Model stage (e.g., `Production`) |
+
+---
+
+## 🧠 Key Learnings
+- Automated ML pipeline creation with MLOps best practices.
+- Hands-on experience in experiment tracking, model registry, and conditional deployment.
+- Improved model fairness and recall using SMOTE.
+- Deployment-ready API integration via FastAPI.
+
+---
+
+## 🏁 Final Outcome
+
+- **F1-score:** 0.9922 (Improved)
+- **Automated Model Promotion** to Production
+- **Complete MLOps Lifecycle** with API Integration
+

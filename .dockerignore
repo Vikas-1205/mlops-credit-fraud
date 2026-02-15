@@ -1,0 +1,16 @@
+.git
+.github
+data/
+tests/
+logs/
+__pycache__
+*.pyc
+*.pyo
+.DS_Store
+.env
+*.md
+.gitignore
+.dockerignore
+docker-compose.yml
+retrain.sh
+reflection.md

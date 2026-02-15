@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -9,7 +10,7 @@ import mlflow.sklearn
 # ---------- CONFIG ----------
 BASELINE_F1 = 0.91
 THRESHOLD = 0.91
-MLFLOW_TRACKING_URI = "mlruns"
+MLFLOW_TRACKING_URI = os.getenv("MLFLOW_TRACKING_URI", "mlruns")
 
 # ---------- LOAD DATA ----------
 print("📊 Loading dataset...")
