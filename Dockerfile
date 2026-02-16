@@ -10,15 +10,14 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app/ ./app/
 COPY model_pipeline.py .
 
-# Copy mlruns if available (for pre-trained models)
-COPY mlruns/ ./mlruns/
+# Copy exported model
+COPY model/ ./model/
 
-# Expose port
-EXPOSE 8000
+# Expose port (Render uses PORT env var)
+EXPOSE 10000
 
 # Set environment variables
-ENV MLFLOW_TRACKING_URI=mlruns
-ENV MODEL_NAME=FraudDetectionModel
+ENV MODEL_PATH=model
 
-# Run the API server
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Run the API server — use PORT env var (Render sets this automatically)
+CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}

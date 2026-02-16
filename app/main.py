@@ -33,8 +33,22 @@ model = None
 
 
 def load_model():
-    """Load the latest registered model from MLflow."""
+    """Load model from local path first, then fall back to MLflow registry."""
     global model
+
+    # Try local model directory first (for Docker/Render deployment)
+    local_model_path = os.getenv("MODEL_PATH", "model")
+    if os.path.exists(local_model_path) and os.path.exists(os.path.join(local_model_path, "model.pkl")):
+        try:
+            import pickle
+            with open(os.path.join(local_model_path, "model.pkl"), "rb") as f:
+                model = pickle.load(f)
+            logger.info(f"Model loaded from local path: {local_model_path}")
+            return
+        except Exception as e:
+            logger.warning(f"Failed to load local model: {e}")
+
+    # Fall back to MLflow registry
     try:
         import mlflow.pyfunc
 
@@ -50,9 +64,9 @@ def load_model():
             model_uri = f"models:/{model_name}/latest"
 
         model = mlflow.pyfunc.load_model(model_uri)
-        logger.info(f"Model loaded successfully from {model_uri}")
+        logger.info(f"Model loaded from MLflow: {model_uri}")
     except Exception as e:
-        logger.warning(f"Could not load model: {e}. /predict will be unavailable until a model is trained and registered.")
+        logger.warning(f"Could not load model: {e}. /predict will be unavailable.")
         model = None
 
 

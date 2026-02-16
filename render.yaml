@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: fraud-detection-api
+    runtime: docker
+    repo: https://github.com/Vikas-1205/mlops-credit-fraud
+    branch: main
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: MODEL_PATH
+        value: model
+      - key: PORT
+        value: "10000"
