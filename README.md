@@ -1,5 +1,7 @@
 # 💳 Credit Card Fraud Detection – End-to-End MLOps Pipeline
 
+### 🌐 Live Demo: [fraud-detection-api-qet1.onrender.com](https://fraud-detection-api-qet1.onrender.com) | [API Docs](https://fraud-detection-api-qet1.onrender.com/docs)
+
 ### 🚀 Overview
 This project implements a **complete MLOps workflow** for detecting fraudulent credit card transactions using **MLflow**, **SMOTE**, and **FastAPI**.  
 
